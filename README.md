@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://best-books-app.herokuapp.com/books">DEMO HERE</a>
+  <a target="_blank" href="https://best-books-app.herokuapp.com/books">DEMO HERE</a>
 </p>
 
 ## <p>Setup</p>

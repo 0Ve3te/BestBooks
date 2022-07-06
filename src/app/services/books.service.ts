@@ -23,7 +23,7 @@ export class BooksService {
   }
 
   getGenre(id: number): Observable<Category> {
-    return this.http.get<Category>('https://best-book-web-api.herokuapp.com/api/categories' + id);
+    return this.http.get<Category>('https://best-book-web-api.herokuapp.com/api/categories/' + id);
   }
 
   getGeneres(): Observable<Category[]> {

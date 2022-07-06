@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <span><mat-icon class="icon-style">language</mat-icon>BestBooks</span>
+  <div class="space">
+  </div>
+  <a mat-button routerLink="/books" routerLinkActive="active-link">Książki</a>
+  <a mat-button routerLink="/genre" routerLinkActive="active-link">Gatunki</a>
+
+  <button mat-button [matMenuTriggerFor]="Actions" routerLink="/create" routerLinkActive="active-link">Zarządzanie</button>
+  <mat-menu #Actions="matMenu" yPosition="below">
+    <a class="menuLink" [href]="['/create/book']">
+      <button mat-menu-item>Dodaj książkę</button>
+    </a>
+    <a class="menuLink" [href]="['create/genere']">
+      <button mat-menu-item>Dodaj gatunek</button>
+    </a>
+  </mat-menu>
+
+</mat-toolbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,29 @@
+<div class="container bg-light">
+  <h1 class="text-center mt-4">Dodawanie nowego gatunku</h1>
+  <div class="alert alert-danger" role="alert" *ngIf="errorInfo == '500'">
+    <div class="text-center">
+      <mat-icon class="icon-style">error</mat-icon> Coś poszło nie tak, wypełnij formularz poprawnie i spróbuj ponownie.
+    </div>
+  </div>
+  <form class="p-5 row" #form="ngForm">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="name" class="control-label">Podaj nazwę nowego gatunku</label>
+        <input [(ngModel)]="model.name" id="name" name="name" type="text"  class="form-control" #name="ngModel" minlength="5" required/>
+        <ng-container *ngIf="name.invalid && name.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="name.errors?.['required']">
+            Pole Nazwa gatunku jest wymagane.
+          </div>
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="name.errors?.['minlength']">
+            Wprowadzony tekst jest zbyt krótki.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 my-2">
+      <div class="form-group">
+        <button type="submit" mat-raised-button color="primary" (click)="send()" [disabled]="form.invalid">Dodaj</button>
+      </div>
+    </div>
+  </form>
+</div>

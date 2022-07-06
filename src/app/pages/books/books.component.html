@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="text-center">Lista wszystkich książek</h1>
+
+  <div class="alert alert-success" role="alert" *ngIf="addedNewBook">
+    <div>
+      <span><mat-icon class="icon-style">check_circle_outline</mat-icon> Nowa książka została pomyślnie dodana.</span>
+    </div>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="addedNewGenere">
+    <div>
+      <span><mat-icon class="icon-style">check_circle_outline</mat-icon> Nowy gatunek został pomyślnie dodany.</span>
+    </div>
+  </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+      <div *ngFor="let book of books | async">
+        <div class="card h-100">
+          <div class="card-header">
+            <h2 class="card-title text-center">{{ book.title }}</h2>
+            <img src="{{ book.img }}" class="card-img-top rounded" alt="{{ book.title }}" width="255px" height="386px">
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <span class="fw-bold">Autor</span>
+              <p>{{ book.author }}</p>
+              <span class="fw-bold">Gatunek</span>
+              <p>{{ book.category.name }}</p>
+              <span class="fw-bold">Opis</span>
+              <p>{{ book.description.slice(0, 100)}} ...</p>
+            </li>
+          </ul>
+          <div class="card-body text-center">
+            <a [routerLink]="['/books', book.id]" style="color:white;">
+              <button mat-flat-button color="primary">
+                <mat-icon class="icon-style">search</mat-icon>Szczegóły
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

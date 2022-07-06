@@ -1,0 +1,125 @@
+<div class="container bg-light">
+  <h1 class="text-center mt-4">Dodawanie nowej książki</h1>
+  <div class="alert alert-danger" role="alert" *ngIf="errorInfo == '500'">
+    <div class="text-center">
+      <mat-icon class="icon-style">error</mat-icon> Coś poszło nie tak, wypełnij formularz poprawnie i spróbuj ponownie.
+    </div>
+  </div>
+  <form class="p-5 row" #form="ngForm">
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="title" class="control-label">Tytuł</label>
+        <input [(ngModel)]="model.title" id="title" name="title" type="text"  class="form-control" #title="ngModel" minlength="3" required/>
+        <ng-container *ngIf="title.invalid && title.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="title.errors?.['required']">
+            Pole Tytuł jest wymagane.
+          </div>
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="title.errors?.['minlength']">
+            Wprowadzony tekst jest zbyt krótki.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="author" class="control-label">Autor</label>
+        <input [(ngModel)]="model.author" id="author" name="author" type="text" class="form-control" #author="ngModel" required>
+        <ng-container *ngIf="author.invalid && author.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="author.errors?.['required']">
+            Pole Autor jest wymagane.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="description" class="control-label">Opis</label>
+        <textarea [(ngModel)]="model.description" id="description" name="description" type="text"
+          class="form-control" #desc="ngModel" required minlength="10"></textarea>
+        <ng-container *ngIf="desc.invalid && desc.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="desc.errors?.['required']">
+            Pole Opis jest wymagane.
+          </div>
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="desc.errors?.['minlength']">
+            Wprowadzony tekst jest zbyt krótki.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="img" class="control-label">Adres zdjęcia okładki</label>
+        <input [(ngModel)]="model.img" id="img" name="img" type="text" class="form-control" #IMGSrc="ngModel" required>
+        <ng-container *ngIf="IMGSrc.invalid && IMGSrc.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="IMGSrc.errors?.['required']">
+            Pole jest wymagane.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="pages" class="control-label">Ilość stron</label>
+        <input [(ngModel)]="model.pages" id="pages" name="pages" type="number" class="form-control" #pages="ngModel" required>
+        <ng-container *ngIf="pages.invalid && pages.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="pages.errors?.['required']">
+            Pole Ilośc stron wymagane.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="year" class="control-label">Rok wydania</label>
+        <input [(ngModel)]="model.year" id="year" name="year" type="number" class="form-control" #year="ngModel" required>
+        <ng-container *ngIf="year.invalid && year.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="year.errors?.['required']">
+            Pole rok jest wymagane.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="rate" class="control-label">Ocena książki (z serwisu <a
+            href="https://www.goodreads.com">goodreads.com</a>)</label>
+        <input [(ngModel)]="model.rate" id="rate" name="rate" type="number" class="form-control" #rate="ngModel" required>
+        <ng-container *ngIf="rate.invalid && rate.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="rate.errors?.['required']">
+            Pole Ocena książki jest wymagane.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="category" class="control-label">Gatunek</label>
+        <select class="form-control" [(ngModel)]="model.categoryId" name="category" #genere="ngModel" required>
+          <option *ngFor="let genere of generes" [ngValue]="genere.id"> {{ genere.name }}</option>
+        </select>
+        <ng-container *ngIf="genere.invalid && genere.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="genere.errors?.['required']">
+            Pole Gatunek książki jest wymagane.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label for="videoURL" class="control-label">Link do recenzji książki (w serwisie <a
+            href="https://www.youtube.com">youtube.com</a>)</label>
+        <input [(ngModel)]="model.videoURL" id="videoURL" name="videoURL" type="text" class="form-control" #ytUrl="ngModel" required>
+        <ng-container *ngIf="ytUrl.invalid && ytUrl.touched">
+          <div class="alert alert-danger p-2 mt-2" role="alert" *ngIf="ytUrl.errors?.['required']">
+            Pole Link do recenzji książki jest wymagane.
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 my-2">
+      <div class="form-group">
+        <button type="submit" mat-raised-button color="primary" (click)="send()" [disabled]="form.invalid">Dodaj</button>
+      </div>
+    </div>
+  </form>
+</div>

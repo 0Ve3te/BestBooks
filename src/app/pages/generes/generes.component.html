@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="text-center my-3">Lista wszystkich gatunków książek</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+      <div *ngFor="let genere of generes | async">
+        <div class="card h-100 bg-light">
+          <div class="card-body text-center">
+            <h2 class="card-title text-center">{{ genere.name }}</h2>
+            <a [routerLink]="['/genre', genere.id]" style="color:white;">
+              <button mat-flat-button color="primary">
+                <mat-icon class="icon-style">search</mat-icon>Szczegóły
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

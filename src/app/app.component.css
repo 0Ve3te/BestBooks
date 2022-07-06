@@ -1,0 +1,15 @@
+.space {
+  flex: 1 1 auto;
+}
+
+.active-link {
+  background-color: brown;
+}
+
+a:hover {
+  color: white;
+}
+
+button a:hover {
+  color: black;
+}

@@ -1,0 +1,40 @@
+<div class="container pb-2" *ngIf="bookDetails | async as book">
+  <h1 class="text-center my-4">Szczegóły książki</h1>
+  <a [routerLink]="['/books']" style="color:white;">
+    <button mat-raised-button class="btn my-2" color="warn"><mat-icon class="icon-style">chevron_left</mat-icon> Wróć do listy książek</button>
+  </a>
+  <div class="card">
+    <h2 class="card-title text-center my-2">{{ book.title }}</h2>
+    <div class="d-flex">
+      <div class="card-header" style="width: 40%;">
+        <mat-tab-group>
+          <mat-tab label="Okładka">
+            <img src="{{ book.img }}" class="p-3 img rounded" alt="{{ book.title }}">
+          </mat-tab>
+          <mat-tab label="Rezencja">
+            <iframe class="p-3" width="450px;" height="450px;" [src]="book.videoURL | safe" title="YouTube video player" allowfullscreen></iframe>
+          </mat-tab>
+        </mat-tab-group>
+        </div>
+        <div style="width: 60%; padding: 20px;">
+          <p class="fw-bold">Autor</p>
+          <p>{{ book.author }}</p>
+          <p class="fw-bold">Gatunek</p>
+          <p>{{ book.category.name }}</p>
+          <p class="fw-bold">Rok wydania</p>
+          <p>{{ book.year }}</p>
+          <p class="fw-bold">Opis</p>
+          <p>{{ book.description }}</p>
+          <p class="fw-bold">Ilość stron</p>
+          <p>{{ book.pages }}</p>
+          <p class="fw-bold">Ogólna ocena</p>
+          <button mat-raised-button matTooltip="Prezentowana ocena jest wynikiem osiągniętym przez książkę na portalu https://www.goodreads.com" matTooltipClass="example-tooltip-red" class="example-button">
+            <span>
+              <mat-icon *ngFor="let item of [].constructor(book.rate)" class="text-warning icon-style">star</mat-icon>
+            </span>
+            <span class="fw-bold">({{ book.rate }} / 5)</span>
+          </button>
+        </div>
+    </div>
+  </div>
+</div>

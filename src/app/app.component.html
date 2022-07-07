@@ -1,5 +1,13 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
   <span><mat-icon class="icon-style">language</mat-icon>BestBooks</span>
+  <ng-container *ngIf="auth.isAuthenticated$ | async as user; else loggedOut">
+    <button class="ms-2" mat-button *ngIf="auth.user$ | async as user">Witaj {{ user.name }}!</button>
+    <button class="ms-2 border" mat-button (click)="auth.logout({ returnTo: document.location.origin })">Wyloguj się</button>
+  </ng-container>
+  <ng-template #loggedOut>
+    <button id="login" class="ms-2 border" mat-button (click)="auth.loginWithRedirect()">Zaloguj się</button>
+  </ng-template>
+
   <div class="space">
   </div>
   <a mat-button routerLink="/books" routerLinkActive="active-link">Książki</a>

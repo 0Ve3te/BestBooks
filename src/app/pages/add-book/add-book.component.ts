@@ -3,7 +3,7 @@ import { Book } from 'src/app/model/book';
 import { Category } from 'src/app/model/category';
 import { BooksService } from 'src/app/services/books.service';
 import { Router } from '@angular/router';
-import { NgForm, NgModel } from '@angular/forms';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-add-book',
@@ -15,7 +15,7 @@ export class AddBookComponent implements OnInit {
   generes: Category[] = [];
   errorInfo = "";
 
-  constructor(private bookService: BooksService, private router: Router) { }
+  constructor(private bookService: BooksService, private router: Router,public auth: AuthService) { }
 
   ngOnInit(): void {
     this.bookService.getGeneres().subscribe(generes => this.generes = generes);

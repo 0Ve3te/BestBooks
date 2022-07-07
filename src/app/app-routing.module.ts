@@ -7,6 +7,8 @@ import { BooksComponent } from './pages/books/books.component';
 import { GenereComponent } from './pages/generes/genere/genere.component';
 import { GeneresComponent } from './pages/generes/generes.component';
 
+import { AuthGuard } from '@auth0/auth0-angular';
+
 const routes: Routes = [
   {path: '', redirectTo: '/books', pathMatch: 'full'},
   {path: 'books', component: BooksComponent},
@@ -14,8 +16,8 @@ const routes: Routes = [
   {path: 'books/addedNewGenere', component: BooksComponent},
   {path: 'books/:id', component: BookDetailsComponent},
   {path: 'genre/:id', component: GenereComponent},
-  {path: 'create/book', component: AddBookComponent},
-  {path: 'create/genere', component: AddGenereComponent},
+  {path: 'create/book', component: AddBookComponent, canActivate: [AuthGuard]},
+  {path: 'create/genere', component: AddGenereComponent, canActivate: [AuthGuard]},
   {path: 'genre', component: GeneresComponent},
 
 ];

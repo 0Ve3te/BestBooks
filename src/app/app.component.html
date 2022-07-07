@@ -10,6 +10,8 @@
 
   <div class="space">
   </div>
+  <input [(ngModel)]="bookName" type="text" class="form-control me-3" [placeholder]="['Nazwa książki ...']" style="width: 300px;">
+  <button (click)="searchBook()" class="me-3" mat-mini-fab style="background-color: #6c757d;"><mat-icon>search</mat-icon></button>
   <a mat-button routerLink="/books" routerLinkActive="active-link">Książki</a>
   <a mat-button routerLink="/genre" routerLinkActive="active-link">Gatunki</a>
 

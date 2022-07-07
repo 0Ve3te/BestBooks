@@ -22,6 +22,10 @@ export class BooksService {
     return this.http.get<Book>(this.url + '/' + id);
   }
 
+  getBooksContains(str: string): Observable<Book[]> {
+    return this.http.get<Book[]>(this.url + '/?search=' + str);
+  }
+
   getGenre(id: number): Observable<Category> {
     return this.http.get<Category>('https://best-book-web-api.herokuapp.com/api/categories/' + id);
   }

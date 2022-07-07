@@ -23,6 +23,7 @@ import { AddBookComponent } from './pages/add-book/add-book.component';
 import { AddGenereComponent } from './pages/add-genere/add-genere.component';
 import { GeneresComponent } from './pages/generes/generes.component';
 import { GenereComponent } from './pages/generes/genere/genere.component';
+import {MatInputModule} from '@angular/material/input';
 
 //Import the module from th SDK Auth0
 import { AuthModule } from '@auth0/auth0-angular';
@@ -54,6 +55,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     MatTooltipModule,
     MatTabsModule,
     FormsModule,
+    MatInputModule,
 
     AuthModule.forRoot({
       domain: 'dev-d72-3hx4.us.auth0.com',

@@ -42,6 +42,12 @@
       </div>
     </div>
   </div>
+
+  <h2 class="text-center text-secondary w-100 my-5" *ngIf="(books | async)?.length==0">
+    <mat-icon class="icon-style">mood_bad</mat-icon> Nie znaleziono szukanej książki. <br />
+    <a [href]="['create/book']">Możesz samodzielnie dodać nową pozycję klikając w ten link</a>
+  </h2>
+
   <ng-template #loading>
     <div class="w-100 d-flex flex-wrap justify-content-center">
       <h2 class="text-center w-100">Wczytywanie ...</h2>

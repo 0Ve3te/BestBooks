@@ -12,6 +12,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
 const routes: Routes = [
   {path: '', redirectTo: '/books', pathMatch: 'full'},
   {path: 'books', component: BooksComponent},
+  {path: 'books/search/:name', component: BooksComponent},
   {path: 'books/addedNew', component: BooksComponent},
   {path: 'books/addedNewGenere', component: BooksComponent},
   {path: 'books/:id', component: BookDetailsComponent},

@@ -1,5 +1,6 @@
 <div class="container">
   <h1 class="text-center my-3" *ngIf="genre | async as Category">Lista książek z gatunku: {{ Category.name }} </h1>
+  <div *ngIf="books | async as book; else loading">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
       <h2 class="text-center text-secondary w-100 my-5" *ngIf="(books | async)?.length==0">
         <mat-icon class="icon-style">mood_bad</mat-icon> Nie znaleziono żadnej książki w wybranym gatunku. <br />
@@ -31,4 +32,13 @@
         </div>
       </div>
     </div>
+  </div>
+  <ng-template #loading>
+    <div class="w-100 d-flex flex-wrap justify-content-center">
+      <h2 class="text-center w-100">Wczytywanie ...</h2>
+      <div class="spinner-border background-color-primary" role="status" style="width: 5rem; height: 5rem;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
 </div>

@@ -15,12 +15,19 @@ export class BooksComponent implements OnInit {
   addedNewBook: boolean = false;
   addedNewGenere: boolean = false;
   searchBooks: string = '';
+  collection: any[] = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', 'test10'];
+  allBooks: Book[] = [];
+  page: number = 1;
 
   constructor(private http: BooksService, private router: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.books = this.http.getBooks();
+
+    this.http.getBooks().subscribe((response: any) => {
+      this.allBooks = response;
+    });
 
     //when parameters are updated in the same component - subscription
     this.router.paramMap.subscribe(params => {

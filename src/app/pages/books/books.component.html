@@ -15,7 +15,8 @@
 
   <div *ngIf="books | async as book; else loading">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-      <div *ngFor="let book of books | async;">
+      <div *ngFor="let book of allBooks | paginate: { itemsPerPage: 5, currentPage: page}">
+      <!-- <div *ngFor="let book of books | async;"> -->
         <div class="card h-100">
           <div class="card-header">
             <h2 class="card-title text-center">{{ book.title }}</h2>
@@ -41,6 +42,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <pagination-controls class="my-pagination" (pageChange)="page = $event" [responsive]="true" previousLabel="Poprzednia" nextLabel="Następna"></pagination-controls>
   </div>
 
   <h2 class="text-center text-secondary w-100 my-5" *ngIf="(books | async)?.length==0">

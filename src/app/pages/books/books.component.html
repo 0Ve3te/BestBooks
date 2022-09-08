@@ -24,8 +24,15 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <span class="fw-bold">Autor</span>
-              <p>{{ book.author }}</p>
+              <div class="d-flex align-items-baseline justify-content-center">
+                <span style="width: 80%;" class="fw-bold">Autor</span>
+                <div style="width: 20%;" class="text-right">
+                  <button mat-icon-button color="warn">
+                    <mat-icon>favorite_border</mat-icon>
+                  </button>
+                </div>
+              </div>
+                <p>{{ book.author }}</p>
               <span class="fw-bold">Gatunek</span>
               <p>{{ book.category.name }}</p>
               <span class="fw-bold">Opis</span>

@@ -3,7 +3,13 @@
 }
 
 .active-link {
-  background-color: brown;
+  background-color: #6c757d;
+}
+
+.search-input {
+  font-size: 15px;
+  width: 300px;
+  height: 35px;
 }
 
 a:hover {

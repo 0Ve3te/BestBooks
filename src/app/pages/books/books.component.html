@@ -13,10 +13,10 @@
     </div>
   </div>
 
-  <div *ngIf="books | async as book; else loading">
+  <div *ngIf="allBooks.length > 0; else loading">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-      <div *ngFor="let book of allBooks | paginate: { itemsPerPage: 5, currentPage: page}">
-      <!-- <div *ngFor="let book of books | async;"> -->
+      <!-- <div *ngFor="let book of allBooks | paginate: { itemsPerPage: 5, currentPage: page}"> -->
+      <div *ngFor="let book of allBooks | paginate: { itemsPerPage: 8, currentPage: page }">
         <div class="card h-100">
           <div class="card-header">
             <h2 class="card-title text-center">{{ book.title }}</h2>
@@ -48,7 +48,7 @@
     <pagination-controls class="my-pagination" (pageChange)="page = $event" [responsive]="true" previousLabel="Poprzednia" nextLabel="Następna"></pagination-controls>
   </div>
 
-  <h2 class="text-center text-secondary w-100 my-5" *ngIf="(books | async)?.length==0">
+  <h2 class="text-center text-secondary w-100 my-5" *ngIf="(allBooks.length == 0 && searchBooks != undefined)">
     <mat-icon class="icon-style">mood_bad</mat-icon> Nie znaleziono szukanej książki. <br />
     <a [href]="['create/book']">Możesz samodzielnie dodać nową pozycję klikając w ten link</a>
   </h2>

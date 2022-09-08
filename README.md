@@ -11,7 +11,7 @@
   <img width="50px" src="https://play-lh.googleusercontent.com/qhV0NtKrkgNsTSKIjjqFSVkJpTibe5RBcrxb6y5te70EH5VZXGzd5dGUCkHIpHxq94hQ" />
   <img width="60px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/964px-Bootstrap_logo.svg.png" />
   <img width="50px" src="https://cdn.pellerex.com/public/ecosystem/web/content/api-set-up/asp-net-core-web-api-setup.png" />
-  <img width="50px" src="https://gdm-catalog-fmapi-prod.imgix.net/ProductLogo/1463490d-fd12-4a79-99f1-4435c93f6424.png" />
+  <img width="50px" src="https://expel.com/wp-content/uploads/2022/03/Auth0-Logo.png" />
 </p>
 
 <p align="center">

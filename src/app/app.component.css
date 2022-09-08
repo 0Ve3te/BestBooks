@@ -12,6 +12,11 @@
   height: 35px;
 }
 
+.brand {
+  text-decoration: none;
+  color: white;
+}
+
 a:hover {
   color: white;
 }
